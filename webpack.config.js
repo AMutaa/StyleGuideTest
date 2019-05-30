@@ -11,8 +11,11 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        use: ["babel-loader"]
+        exclude: /node_modules\/(?!style-guide-2)/,
+        use: "babel-loader",
+        options: {
+          presets: ["es2015", "react", "stage-0"]
+        }
       },
       {
         test: /\.css$/,
